@@ -36,7 +36,9 @@ case $? in
         echo "挖坑带补";;
     3)
         echo "挖坑待补";;
-
+    0) 
+        exit 0;;
+esac
 }
 ##########main
 dialog --menu "MinecraftBE Server Deploy" 20 30 10 1 "启动Server" 2 "部署Server" 0 "退出"
