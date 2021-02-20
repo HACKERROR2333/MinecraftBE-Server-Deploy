@@ -12,7 +12,7 @@ Re_Inatall(){
 }
 Install_BDS(){
     unzip -o -d $Server_Path/BDS $Server_Path/BDS/$Downfile
-    dialog  --title "MinecraftBE Server Deploy" --no-shadow --yesno "输入MSD启动Server" 10 30
+    dialog  --title "MinecraftBE Server Deploy" --no-shadow --yesno "输入MSD(大写)启动Server" 10 30
     exit 0
 }
 Install_Check(){
