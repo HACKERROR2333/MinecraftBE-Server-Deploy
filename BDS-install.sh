@@ -6,17 +6,18 @@ export HOME="/data/data/com.termux/files/home"
 export Server_Path=$HOME/.local/share/MinecraftBE-Server
 ##########function
 Re_Inatall(){
-    rm -rf $Server_Path/BSD/*
+    rm -rf $Server_Path/BDS/*
     Install_Check
     Install_BDS
 }
 Install_BDS(){
-    unzip $Downfile    
-    dialog --title "MinecraftBE Server Deploy" --no-shadow --yesno "输入MSD启动Server" 10 30
+    unzip -y $Server_Path/BDS/$Downfile
+    dialog  --title "MinecraftBE Server Deploy" --no-shadow --yesno "输入MSD启动Server" 10 30
+    exit 0
 }
 Install_Check(){
     echo "即将开始安装..."
-    wget -P $Server_Path/BDS https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.201.03.zip
+#    wget -P $Server_Path/BDS https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.201.03.zip
     Downfile=`ls $Server_Path/BDS`
     MC_Version=${Downfile:15:(24-15)}
     dialog --title "MinecraftBE Server Deploy" --no-shadow --yesno "由于BDS的原因 只能架设最新Server 即$MC_Version 确定继续？" 10 30
@@ -32,7 +33,7 @@ if [ -d $Server_Path/BDS ];then
     dialog --title "MinecraftBE Server Deploy" --no-shadow --yesno "Server已安装 选择Yes将重新安装" 10 30
     case $? in
         0)
-            Re_Inatall;;
+            Install_Check&&Install_BDS;;
         1)
             exit 0;;
     esac
