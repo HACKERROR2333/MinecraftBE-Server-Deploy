@@ -15,7 +15,7 @@ Start_BDS(){
     sh $Server_Path/BDS/bedrock_server
 }
 Deploy_Server(){
-dialog --menu "MinecraftBE Server Deploy" 20 30 10 1 "使用BDS部署" 2 "使用nukkit部署（后续补上" 3 "使用PowerNukkit部署（后续补上" 0 "退出"
+dialog --title "MinecraftBE Server Deploy"--menu "by HACKERROR" 20 30 10 1 "使用BDS部署" 2 "使用nukkit部署（后续补上" 3 "使用PowerNukkit部署（后续补上" 0 "退出"
 case $? in
     1)
         BDS;;
